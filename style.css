@@ -1,0 +1,297 @@
+/* ========== Base ========== */
+:root {
+  --brand: #2C3E75;
+  /* deep blue from your design */
+  --brand-2: #3C2E86;
+  /* purple-ish section headings */
+  --text: #1a1a1a;
+  --muted: #667085;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(2, 8, 23, .08);
+}
+
+* {
+  box-sizing: border-box
+}
+
+html {
+  scroll-behavior: smooth
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+  border-radius: 12px
+}
+
+/* Containers */
+.container {
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+}
+
+/* Header / Nav */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #eef1f6;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  color: var(--brand)
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  padding: 6px;
+  cursor: pointer
+}
+
+.nav-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: #111;
+  margin: 5px 0;
+  border-radius: 2px
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 64vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .55), rgba(0, 0, 0, .35))
+}
+
+.hero-content {
+  position: relative;
+  color: #fff;
+  padding: 60px 0
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 54px);
+  line-height: 1.05;
+  margin: 0 0 12px
+}
+
+.hero h1 span {
+  font-weight: 800
+}
+
+.kicker {
+  font-weight: 600;
+  opacity: .95;
+  margin-bottom: 22px
+}
+
+.btn {
+  display: inline-block;
+  background: var(--brand);
+  color: white;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  font-weight: 700;
+}
+
+.btn:hover {
+  filter: brightness(.95)
+}
+
+/* Sections */
+.section {
+  padding: 64px 0
+}
+
+.section-title {
+  text-align: center;
+  color: var(--brand-2);
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 800;
+  margin: 0 0 26px;
+}
+
+.eyebrow {
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--brand-2);
+  font-size: .9rem;
+  margin: 0 0 8px
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow)
+}
+
+.card-body {
+  padding: 26px
+}
+
+.grid {
+  display: grid;
+  gap: 28px;
+  align-items: center;
+  grid-template-columns: 1fr;
+}
+
+.grid .image img {
+  width: 100%;
+  height: auto
+}
+
+/* Fix: ensure single-column grid items span both columns when layout expects two columns.
+   This makes the Summary card (which has no image) stretch to the same visual width as others. */
+#summary .card-body.grid>.col:only-child {
+  grid-column: 1 / -1;
+}
+
+/* Bullets */
+.bullets {
+  padding-left: 18px
+}
+
+.bullets li {
+  margin: 8px 0
+}
+
+/* Form */
+.contact-form {
+  display: grid;
+  gap: 18px
+}
+
+.contact-form .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px
+}
+
+.contact-form label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600
+}
+
+.contact-form input,
+.contact-form textarea {
+  border: 1px solid #dfe4ea;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font: inherit;
+  background: #fff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid #cfd7ff;
+  border-color: #b9c2ff
+}
+
+.contact-form .full {
+  grid-column: 1/-1
+}
+
+.form-status {
+  margin-top: 6px;
+  min-height: 20px;
+  color: var(--brand)
+}
+
+/* Footer */
+.site-footer {
+  padding: 32px 0;
+  text-align: center;
+  color: #475467
+}
+
+/* Responsive */
+@media (min-width: 860px) {
+  .grid {
+    grid-template-columns: 1.1fr .9fr
+  }
+
+  #solution .grid {
+    grid-template-columns: .9fr 1.1fr
+  }
+}
+
+@media (max-width: 720px) {
+  .nav-toggle {
+    display: block
+  }
+
+  .nav-links {
+    position: absolute;
+    right: 20px;
+    top: 62px;
+    background: #fff;
+    border: 1px solid #eef1f6;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 12px 16px;
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .nav-links.open {
+    display: flex
+  }
+
+  .contact-form .row {
+    grid-template-columns: 1fr
+  }
+}

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articyst</title>
+  <meta name="description" content="Articyst — Empowering biomedical research and open science." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Header / Navbar -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <img src="assets/logo.svg" alt="Articyst Logo" height="32" />
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="home">
+    <section class="hero">
+      <img class="hero-bg" src="assets/medical-banner-with-doctor-wearing-goggles.jpg"
+        alt="Scientist working in a lab background" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <h1><span>Innovative Biomedical</span><br />research</h1>
+        <p class="kicker">Empowering students in data science</p>
+        <a href="#summary" class="btn">Learn More</a>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section id="summary" class="section">
+      <div class="container">
+        <h2 class="section-title">Summary</h2>
+        <div class="card">
+          <div class="card-body grid">
+            <div class="col">
+              <h3 class="eyebrow">Empowering Biomedical Research</h3>
+              <h4>Advancing open science initiatives</h4>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere lorem et velit
+                pellentesque, ut sagittis lacus egestas. Donec vel nunc nec lorem tristique volutpat.
+              </p>
+              <p>
+                Vivamus at augue porta, blandit arcu non, feugiat justo. Sed congue placerat sapien, vitae
+                rhoncus nibh condimentum quis. Cras at commodo nibh.
+              </p>
+              <ul class="bullets">
+                <li>Life Sciences</li>
+                <li>Partners across EU clinical sites</li>
+                <li>Project team includes senior clinicians & researchers</li>
+              </ul>
+              <div class="links">
+                <a href="#contact" class="text-link">Get in touch</a>
+              </div>
+            </div>
+            <!-- <div class="col image">
+              <img src="assets/summary.jpg" alt="Summary illustration">
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Challenge -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">Challenge</h2>
+        <div class="card">
+          <div class="card-body grid">
+            <div class="col">
+              <h4>Open Science project</h4>
+              <p>
+                ADPKD patients face uncertainty regarding their future kidney function, impacting decisions and
+                treatment plans. Current prediction tools lack precision and do not allow integration of different
+                data types. This knowledge is crucial to guide therapeutic decision‑making.
+              </p>
+              <p>
+                Furthermore, including data across centres would be pivotal to improve such tools and allow for
+                comparison of disease‑courses — non‑trivial, hindering the ability to create reliable predictive models.
+              </p>
+            </div>
+            <div class="col image">
+              <img src="assets/challenge.jpg" alt="Challenge image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution -->
+    <section id="solution" class="section">
+      <div class="container">
+        <h2 class="section-title">Solution</h2>
+        <div class="card">
+          <div class="card-body grid">
+            <div class="col image">
+              <img src="assets/top-view-creative-idealight-bulb-made-by-paper-gem-clips-white-table.jpg"
+                alt="Solution image">
+            </div>
+            <div class="col">
+              <p>
+                ARTICYST will build an infrastructure to integrate clinical, genotype, MRI, and proteomic data
+                using unbiased model building across multiple cohorts. A dedicated mass spectrometry pipeline,
+                database design, and clinical data exchange will enable predictive power and future assay panels.
+              </p>
+              <p>
+                The framework will scale across centres and biosamples and will reach out to BBMRI‑ERIC and
+                EATRIS for broader extension.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scientific Impact -->
+    <section id="impact" class="section">
+      <div class="container">
+        <h2 class="section-title">Scientific Impact</h2>
+        <div class="card">
+          <div class="card-body">
+            <p>
+              The platform can extend to similar challenges across non‑communicable diseases by establishing
+              targeted diagnostic panels and collaborating with patient advocacy groups. Increasing the visibility
+              of Open Science practices in clinical research will support future research and treatment advancements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section id="results" class="section">
+      <div class="container">
+        <h2 class="section-title">Results</h2>
+        <div class="card">
+          <div class="card-body grid">
+            <div class="col">
+              <ul class="bullets">
+                <li><strong>German patient survey:</strong> gathered opinions toward Open Science in counselling and
+                  medicine and willingness to share medical data.</li>
+                <li><strong>Patient outreach:</strong> short communication videos and articles published with PKD
+                  International channels.</li>
+                <li><strong>Mapping of clinical database variables:</strong> framework for sharing and integrating data
+                  between two EU clinical sites.</li>
+              </ul>
+            </div>
+            <div class="col image">
+              <img src="assets/still-life-graphics-arrangement.jpg" alt="Results image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="card">
+          <div class="card-body">
+            <form id="contactForm" class="contact-form" novalidate>
+              <div class="row">
+                <label>
+                  <span>Name</span>
+                  <input type="text" name="name" required placeholder="Your name" />
+                </label>
+                <label>
+                  <span>Email</span>
+                  <input type="email" name="email" required placeholder="you@example.com" />
+                </label>
+              </div>
+              <label class="full">
+                <span>Message</span>
+                <textarea name="message" rows="5" required placeholder="Write your message..."></textarea>
+              </label>
+              <button type="submit" class="btn">Send</button>
+              <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Articyst</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
