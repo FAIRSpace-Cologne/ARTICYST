@@ -1,9 +1,9 @@
+/* ...existing code... */
+
 /* ========== Base ========== */
 :root {
-  --brand: #2C3E75;
-  /* deep blue from your design */
-  --brand-2: #3C2E86;
-  /* purple-ish section headings */
+  --brand: #80509a;
+  --brand-2: #80509a;
   --text: #1a1a1a;
   --muted: #667085;
   --bg: #f5f7fb;
@@ -13,16 +13,16 @@
 }
 
 * {
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
@@ -32,7 +32,7 @@ img {
   max-width: 100%;
   display: block;
   height: auto;
-  border-radius: 12px
+  border-radius: 12px;
 }
 
 /* Containers */
@@ -46,30 +46,74 @@ img {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #fff;
-  border-bottom: 1px solid #eef1f6;
+  background: var(--brand);
+  /* brand header (desktop) */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ensure header content has at least 20px gap from viewport edges */
+.site-header .container {
+  padding-inline: 20px;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 14px 0;
+  padding: 18px 0;
+  /* reduced header padding for a smaller header */
+  /* slightly tighter spacing */
+  gap: 18px;
+  width: 100%;
+}
+
+.brand {
+  margin-right: auto;
+  /* push nav items to the right */
+  font-weight: 900;
+  font-size: 1.6rem;
+  /* brand text size for header */
+  letter-spacing: 0.02em;
+  color: #fff;
+  /* white brand text on brand header */
+  text-decoration: none;
 }
 
 .nav-links {
   display: flex;
-  gap: 28px
+  gap: 36px;
+  /* spacing between links */
+  margin-left: auto;
+  /* force nav to the extreme right */
 }
 
 .nav-links a {
   text-decoration: none;
-  color: var(--text);
-  font-weight: 600;
+  color: #fff;
+  /* white links on brand header */
+  font-weight: 700;
+  font-size: 1.05rem;
+  /* nav text size */
+  position: relative;
+  padding-bottom: 6px;
 }
 
-.nav-links a:hover {
-  color: var(--brand)
+/* animated underline for nav links */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.18);
+  /* subtle white underline on brand header */
+  bottom: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
 }
 
 .nav-toggle {
@@ -77,25 +121,35 @@ img {
   background: none;
   border: 0;
   padding: 6px;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .nav-toggle span {
   display: block;
-  width: 26px;
-  height: 3px;
-  background: #111;
-  margin: 5px 0;
-  border-radius: 2px
+  width: 34px;
+  height: 4px;
+  background: #fff;
+  /* white bars on brand header */
+  margin: 6px 0;
+  border-radius: 3px;
 }
 
 /* Hero */
 .hero {
   position: relative;
-  min-height: 64vh;
-  display: grid;
-  place-items: center;
-  overflow: hidden
+  /* hero height */
+  min-height: 70vh;
+
+  /* put content bottom-left */
+  display: flex;
+  align-items: flex-end;
+  /* vertical: bottom */
+  justify-content: flex-start;
+  /* horizontal: left */
+
+  overflow: hidden;
+  padding: 0 0 32px 24px;
+  /* bottom + left spacing for the text block */
 }
 
 .hero-bg {
@@ -103,55 +157,81 @@ img {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover
+  object-fit: cover;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, .55), rgba(0, 0, 0, .35))
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, .55),
+      rgba(0, 0, 0, .35));
 }
 
 .hero-content {
   position: relative;
   color: #fff;
-  padding: 60px 0
+
+  /* keep content in the corner, no extra padding pushing it in */
+  padding: 0;
+  margin: 0;
+
+  text-align: left;
+  text-shadow: 0 10px 30px rgba(2, 8, 23, 0.6);
 }
 
 .hero h1 {
-  font-size: clamp(32px, 5vw, 54px);
-  line-height: 1.05;
-  margin: 0 0 12px
+  font-size: clamp(34px, 5.5vw, 64px);
+  line-height: 1.03;
+  margin: 0 0 8px;
+  text-shadow: 0 12px 28px rgba(2, 8, 23, 0.65);
 }
 
 .hero h1 span {
-  font-weight: 800
+  font-weight: 800;
 }
 
 .kicker {
-  font-weight: 600;
-  opacity: .95;
-  margin-bottom: 22px
+  font-weight: 700;
+  opacity: .98;
+  margin-bottom: 12px;
+  font-size: 1.02rem;
+  text-shadow: 0 8px 22px rgba(2, 8, 23, 0.6);
 }
 
+/* Button */
 .btn {
   display: inline-block;
-  background: var(--brand);
-  color: white;
   text-decoration: none;
-  padding: 12px 18px;
-  border-radius: 999px;
-  box-shadow: var(--shadow);
+  color: var(--brand);
+  background: transparent;
+  border: 2px solid var(--brand);
+  padding: 10px 16px;
+  border-radius: 8px;
   font-weight: 700;
+  font-size: 0.98rem;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease,
+    transform 140ms ease;
+}
+
+.btn:hover,
+.btn:focus {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(2, 8, 23, 0.18);
+  transform: translateY(-1px);
 }
 
 .btn:hover {
-  filter: brightness(.95)
+  filter: brightness(.95);
 }
 
 /* Sections */
 .section {
-  padding: 64px 0
+  padding: 64px 0;
 }
 
 .section-title {
@@ -167,62 +247,69 @@ img {
   text-transform: uppercase;
   color: var(--brand-2);
   font-size: .9rem;
-  margin: 0 0 8px
+  margin: 0 0 8px;
 }
 
 .card {
   background: var(--card);
   border-radius: var(--radius);
-  box-shadow: var(--shadow)
+  box-shadow: var(--shadow);
 }
 
 .card-body {
-  padding: 26px
+  padding: 30px;
 }
 
 .grid {
   display: grid;
   gap: 28px;
-  align-items: center;
+  align-items: start;
   grid-template-columns: 1fr;
+}
+
+.card-body.grid .col.image img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 .grid .image img {
   width: 100%;
-  height: auto
+  height: auto;
 }
 
-/* Fix: ensure single-column grid items span both columns when layout expects two columns.
-   This makes the Summary card (which has no image) stretch to the same visual width as others. */
-#summary .card-body.grid>.col:only-child {
+/* Ensure single-column grid items span both columns when layout expects two columns.
+   This makes Summary (no image) use full card width like other cards. */
+.card-body.grid>.col:only-child {
   grid-column: 1 / -1;
 }
 
 /* Bullets */
 .bullets {
-  padding-left: 18px
+  padding-left: 18px;
 }
 
 .bullets li {
-  margin: 8px 0
+  margin: 8px 0;
 }
 
 /* Form */
 .contact-form {
   display: grid;
-  gap: 18px
+  gap: 18px;
 }
 
 .contact-form .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px
+  gap: 18px;
 }
 
 .contact-form label {
   display: grid;
   gap: 6px;
-  font-weight: 600
+  font-weight: 600;
 }
 
 .contact-form input,
@@ -237,40 +324,146 @@ img {
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: 2px solid #cfd7ff;
-  border-color: #b9c2ff
+  border-color: #b9c2ff;
 }
 
 .contact-form .full {
-  grid-column: 1/-1
+  grid-column: 1 / -1;
 }
 
 .form-status {
   margin-top: 6px;
   min-height: 20px;
-  color: var(--brand)
+  color: var(--brand);
 }
 
 /* Footer */
+/* Background set to #80509a and text color set to black as requested. */
 .site-footer {
   padding: 32px 0;
   text-align: center;
-  color: #475467
+  background: #80509a;
+  color: #000;
 }
 
-/* Responsive */
+.site-footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Responsive layout adjustments */
 @media (min-width: 860px) {
   .grid {
-    grid-template-columns: 1.1fr .9fr
+    grid-template-columns: 1fr .95fr;
   }
 
   #solution .grid {
-    grid-template-columns: .9fr 1.1fr
+    grid-template-columns: .95fr 1.05fr;
+  }
+
+  .contact-form .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Spotlight (post-hero) tweaks */
+.spotlight {
+  margin-top: 15px;
+  /* 15px gap from hero */
+  padding: 48px 5px;
+  /* full-width with 5px side margins */
+}
+
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.spotlight-text {
+  margin-left: 70px;
+  padding: 24px;
+}
+
+.spotlight-text h4 {
+  font-size: clamp(35px, 2.5vw, 32px);
+  font-weight: 800;
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+.spotlight-text p {
+  font-size: 1.12rem;
+  line-height: 1.75;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.spotlight-text .eyebrow {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.spotlight-text .bullets {
+  font-size: 1.08rem;
+  line-height: 1.9;
+}
+
+.spotlight-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spotlight-image img {
+  width: 800px;
+  height: 800px;
+  object-fit: contain;
+  margin-left: 200px;
+  border-radius: 12px;
+}
+
+@media (max-width: 860px) {
+  .spotlight-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .spotlight-image img {
+    width: 360px;
+    height: 360px;
+  }
+}
+
+@media (max-width: 720px) {
+  .spotlight {
+    padding: 32px 5px;
+  }
+
+  .spotlight-text {
+    padding: 16px;
+  }
+
+  .spotlight-text h4 {
+    font-size: 22px;
+  }
+
+  .spotlight-text p {
+    font-size: 1rem;
+  }
+
+  .spotlight-image img {
+    width: 100%;
+    height: 300px;
   }
 }
 
 @media (max-width: 720px) {
   .nav-toggle {
-    display: block
+    display: block;
   }
 
   .nav-links {
@@ -287,11 +480,15 @@ img {
     gap: 14px;
   }
 
-  .nav-links.open {
-    display: flex
-  }
-
-  .contact-form .row {
-    grid-template-columns: 1fr
+  .nav-links a {
+    text-decoration: none;
+    color: var(--brand);
+    /* brand-colored links on white header */
+    /* links use brand color on white header */
+    font-weight: 700;
+    font-size: 1.05rem;
+    /* nav text size */
+    position: relative;
+    padding-bottom: 6px;
   }
 }
