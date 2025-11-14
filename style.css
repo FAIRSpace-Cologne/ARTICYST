@@ -370,7 +370,7 @@ img {
 .spotlight {
   margin-top: 15px;
   /* 15px gap from hero */
-  padding: 48px 5px;
+  padding: 2px 5px;
   /* full-width with 5px side margins */
 }
 
@@ -387,21 +387,21 @@ img {
 }
 
 .spotlight-text h4 {
-  font-size: clamp(35px, 2.5vw, 32px);
+  font-size: clamp(25px, 2.5vw, 32px);
   font-weight: 800;
   margin: 0 0 16px;
   color: var(--text);
 }
 
 .spotlight-text p {
-  font-size: 1.12rem;
+  font-size: 1rem;
   line-height: 1.75;
   margin-bottom: 16px;
   color: var(--text);
 }
 
 .spotlight-text .eyebrow {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 12px;
 }
 
@@ -422,7 +422,7 @@ img {
   width: 800px;
   height: 800px;
   object-fit: contain;
-  margin-left: 200px;
+  /* margin-left: 200px; */
   border-radius: 12px;
 }
 
