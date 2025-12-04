@@ -494,3 +494,161 @@ img {
     padding-bottom: 6px;
   }
 }
+
+/* Promo Carousel Styles */
+.promo-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.promo-carousel {
+  flex: 1;
+  overflow: hidden;
+  width: 100%;
+}
+
+.promo-carousel-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 500ms ease;
+}
+
+.promo-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  flex: 0 0 calc(33.333% - 16px);
+  min-width: calc(33.333% - 16px);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.promo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(2, 8, 23, .12);
+}
+
+.promo-arrow {
+  background: var(--brand);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 180ms ease;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(128, 80, 154, 0.3);
+}
+
+.promo-arrow:hover {
+  background: var(--brand-2);
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(128, 80, 154, 0.4);
+}
+
+.promo-arrow:active {
+  transform: scale(0.95);
+}
+
+.promo-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: scale(1);
+}
+
+.promo-arrow span {
+  line-height: 1;
+  margin-top: -4px;
+}
+
+/* Pagination Dots */
+.promo-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.promo-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
+  transition: all 200ms ease;
+  padding: 0;
+}
+
+.promo-dot:hover {
+  background: #bbb;
+}
+
+.promo-dot.active {
+  background: var(--brand);
+  width: 32px;
+  border-radius: 6px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 860px) {
+  .promo-card {
+    flex: 0 0 calc(50% - 12px);
+    min-width: calc(50% - 12px);
+  }
+}
+
+@media (max-width: 720px) {
+  .promo-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+  }
+  
+  .promo-carousel-wrapper {
+    gap: 12px;
+  }
+  
+  .promo-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+  }
+}
+
+.promo-card h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.4;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.promo-author {
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 0;
+}
+
+.promo-btn {
+  margin-top: auto;
+  width: 100%;
+  text-align: center;
+  padding: 12px 20px;
+}
